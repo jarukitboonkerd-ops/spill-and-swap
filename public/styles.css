@@ -1,0 +1,82 @@
+:root {
+  color-scheme: dark;
+  font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  color: #fbf5ed;
+  background: #191728;
+  --muted: #cac2da;
+  --line: #5b5170;
+  --accent: #e5c1ff;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; min-height: 100dvh; background: radial-gradient(ellipse at top right, #3a2b50, transparent 60%); }
+main { width: min(100%, 630px); margin: 0 auto; padding: 24px 20px 48px; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(32px, 8vh, 76px); }
+header a { color: var(--accent); font-weight: 800; text-decoration: none; }
+header span, p, label { color: var(--muted); }
+section { padding: clamp(20px, 5vw, 40px); background: #242034; border: 1px solid var(--line); border-radius: 25px; }
+h1 { margin: 0 0 12px; font-size: clamp(1.5rem, 5vw, 2.35rem); line-height: 1.35; }
+p { line-height: 1.65; }
+label { display: block; margin: 20px 0 8px; font-weight: 650; }
+button, input, textarea { font: inherit; border-radius: 12px; min-height: 48px; }
+button { width: 100%; padding: 10px 16px; border: 0; background: var(--accent); color: #241636; font-weight: 800; cursor: pointer; }
+button:disabled { opacity: .55; cursor: default; }
+button.secondary { width: auto; background: #403451; color: #fbf5ed; }
+input, textarea { width: 100%; padding: 12px; border: 1px solid var(--line); background: #191728; color: inherit; }
+textarea { display: block; resize: vertical; }
+:focus-visible { outline: 2px solid #fbc86b; outline-offset: 3px; }
+.share { display: flex; gap: 8px; margin-bottom: 18px; }
+.share input { min-width: 0; }
+.clock { display: inline-block; margin-bottom: 16px; padding: 6px 13px; border-radius: 18px; background: #443252; color: #f5dbff; font-variant-numeric: tabular-nums; }
+.count { text-align: right; margin: 5px 0 12px; font-size: .875rem; }
+#answers { list-style: none; padding: 0; display: grid; gap: 10px; }
+#answers li { padding: 16px 18px; border-radius: 13px; background: #342945; border: 1px solid #625074; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+#notice { padding: 12px 16px; background: #3e3048; border-radius: 12px; }
+.mode-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+.mode-list li { color: var(--accent); }
+.mode-list .locked { color: var(--muted); }
+#ready[aria-pressed="true"] { background: #403451; color: #fbf5ed; }
+#invite-qr { margin: 20px 0; text-align: center; color: var(--muted); }
+#invite-qr-image { display: block; max-width: 100%; height: auto; margin: 0 auto 10px; image-rendering: pixelated; }
+:root {
+  --paper: #fff1ce;
+  --ink: #251944;
+  --accent: #ffce67;
+}
+body {
+  background: radial-gradient(ellipse at top right, #513278, transparent 66%), #191728;
+}
+header { margin-bottom: clamp(18px, 5vh, 48px); }
+section { border-color: #73578a; box-shadow: 0 8px 0 #130e21; }
+#invite-qr-image { width: min(100%, 292px); }
+#player-icons { display: flex; flex-wrap: wrap; gap: 8px; }
+#player-icons span {
+  width: 17px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #e8c4ff;
+  animation: arrive .28s ease-out both;
+}
+@keyframes arrive { from { opacity: 0; transform: scale(.5); } }
+summary { margin-top: 20px; cursor: pointer; }
+#time-bar { display: block; width: 100%; margin-bottom: 18px; accent-color: var(--accent); }
+#clock.countdown { display: block; text-align: center; font-size: clamp(4rem, 18vw, 8rem); }
+#answers li { background: var(--paper); color: var(--ink); border: 0; box-shadow: 0 3px 0 #110d1d; }
+#answers li:nth-child(3n + 2) { background: #eadbff; }
+#answers li:nth-child(3n + 3) { background: #d1f4e6; }
+.card-number { display: block; margin-bottom: 5px; color: #54446e; font-size: .84rem; font-weight: 800; }
+.reveal-card { animation: open-card .32s ease-out both; transform-origin: top center; }
+@keyframes open-card { from { opacity: 0; transform: perspective(480px) rotateX(-50deg) translateY(7px); } }
+.ready-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  padding: 10px 0 max(8px, env(safe-area-inset-bottom));
+  background: #242034;
+}
+.ready-bar p { margin: 5px 0 0; text-align: center; }
+.mode-list .mode-card { padding: 12px; border: 1px solid #73578a; border-radius: 14px; }
+.mode-card p { margin: 8px 0 0; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-card, #player-icons span { animation: none; }
+}

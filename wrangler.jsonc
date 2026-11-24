@@ -1,0 +1,20 @@
+{
+  "name": "wong-phuean",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": ".worker-assets",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/room/*"]
+  },
+  "build": {
+    "command": "node worker-assets.mjs",
+    "watch_dir": "public"
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "ROOMS", "class_name": "GameRoom" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["GameRoom"] }]
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#191728">
+  <title>Spill and Swap</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <main>
+    <header><a href="/">Spill and Swap</a><span id="round" hidden></span></header>
+    <section id="home" hidden>
+      <h1>คำถามเดียว<br>คนละเรื่องเล่า</h1>
+      <p>ชวนเพื่อนเข้าห้อง แล้วตอบพร้อมกันแบบไม่เปิดชื่อ</p>
+      <button id="create">สร้างห้อง</button>
+    </section>
+    <section id="join-screen" hidden>
+      <h1>เข้าห้อง Spill and Swap</h1>
+      <p>ตอบคำถามเดียวกับเพื่อน แล้วอ่านคำตอบพร้อมกัน</p>
+      <button id="join">เข้าร่วม</button>
+    </section>
+    <section id="lobby" hidden>
+      <h1>รอเพื่อนเข้าห้อง</h1>
+      <p id="players" role="status"></p>
+      <div id="player-icons" aria-hidden="true"></div>
+      <figure id="invite-qr" hidden>
+        <img id="invite-qr-image" alt="QR Code สำหรับเข้าห้องนี้" width="222" height="222">
+        <figcaption>สแกน QR Code เพื่อเข้าห้อง</figcaption>
+      </figure>
+      <label for="invite">ลิงก์สำหรับส่งทางแชต</label>
+      <div class="share">
+        <input id="invite" readonly>
+        <button id="copy" class="secondary">คัดลอก</button>
+      </div>
+      <button id="start">เริ่มพื้นฐาน 5 ข้อ</button>
+      <p id="wait-for-host">รอคนสร้างห้องเริ่มโหมดพื้นฐาน</p>
+      <details><summary>โหมดเกม</summary><ul class="mode-list" id="lobby-modes"></ul></details>
+    </section>
+    <section id="answering" hidden>
+      <div id="clock" class="clock"></div>
+      <progress id="time-bar" max="60" value="60" aria-label="เวลาตอบที่เหลือ"></progress>
+      <h1 id="question"></h1>
+      <form id="answer-form">
+        <label for="draft">คำตอบของคุณ</label>
+        <textarea id="draft" rows="4" placeholder="พิมพ์คำตอบที่นี่"></textarea>
+        <p class="count" id="length">0 / 500</p>
+        <button id="send" type="submit" disabled>ส่งคำตอบ</button>
+      </form>
+      <p id="sent" hidden>ส่งคำตอบแล้ว รอเปิดคำตอบพร้อมกัน</p>
+      <p id="progress"></p>
+    </section>
+    <section id="revealed" hidden>
+      <h1>คำตอบของวง</h1>
+      <p id="result-question"></p>
+      <ol id="answers"></ol>
+      <p id="empty" hidden>รอบนี้ไม่มีคำตอบที่ส่งทัน</p>
+      <p>คุยกันได้เลย พอพร้อมครบทุกคน เกมจะไปต่อพร้อมกัน</p>
+      <div class="ready-bar">
+      <button id="ready" aria-pressed="false">พร้อมไปต่อ</button>
+      <p id="ready-count" role="status"></p>
+      </div>
+    </section>
+    <section id="modes" hidden>
+      <h1>เลือกโหมดถัดไป</h1>
+      <p id="mode-instructions"></p>
+      <ul class="mode-list" id="mode-options"></ul>
+      <details><summary>โหมดที่ยังล็อก</summary><ul class="mode-list" id="locked-modes"></ul></details>
+    </section>
+    <p id="notice" role="status" aria-live="polite" hidden></p>
+  </main>
+</body>
+</html>
